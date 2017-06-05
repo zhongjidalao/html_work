@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8">
+<title>博客</title>
+<script type="text/javascript" src="public/js/jquery-3.2.1.min.js"></script>
+  <link rel="stylesheet" href="public/css/bootstrap.min.css">
+  <script src="public/js/bootstrap.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="time/time.css">
+  <script type="text/javascript" src="time/time.js"></script>
+<script src="js/jrj6out.js"></script>
+<script>try{Typekit.load({ async: false });}catch(e){}</script>
+
+<style>
+  body {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+}
+
+.intro-container {
+  position: absolute;
+  margin: 0 auto;
+  right: 0;
+  left: 0;
+}
+
+h1 {
+  font-family: 'brandon-grotesque', sans-serif;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-bottom: 0;
+  font-size: 20px;
+}
+@media screen and (min-width: 860px) {
+  h1 {
+    font-size: 40px;
+    line-height: 52px;
+  }
+}
+
+.fancy-text {
+  font-family: "adobe-garamond-pro",sans-serif;
+  font-style: italic;
+  letter-spacing: 1px;
+  margin-bottom: 17px;
+}
+
+.button {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'brandon-grotesque', sans-serif;
+  text-transform: uppercase;
+  min-width: 200px;
+  margin-top: 30px;
+}
+.button:hover .border {
+  box-shadow: 0px 0px 10px 0px white;
+}
+.button:hover .border .left-plane, .button:hover .border .right-plane {
+  transform: translateX(0%);
+}
+.button:hover .text {
+  color: #121212;
+}
+.button .border {
+  border: 1px solid white;
+  transform: skewX(-20deg);
+  height: 32px;
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+  transition: .10s ease-out;
+}
+.button .border .left-plane, .button .border .right-plane {
+  position: absolute;
+  background: white;
+  height: 32px;
+  width: 100px;
+  transition: .15s ease-out;
+}
+.button .border .left-plane {
+  left: 0;
+  transform: translateX(-100%);
+}
+.button .border .right-plane {
+  right: 0;
+  transform: translateX(100%);
+}
+.button .text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: .15s ease-out;
+}
+
+.x-mark {
+  right: 10px;
+  top: 10px;
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+}
+.x-mark:hover .right {
+  transform: rotate(-45deg) scaleY(1.2);
+}
+.x-mark:hover .left {
+  transform: rotate(45deg) scaleY(1.2);
+}
+.x-mark .container {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+.x-mark .left, .x-mark .right {
+  width: 2px;
+  height: 20px;
+  background: white;
+  position: absolute;
+  border-radius: 3px;
+  transition: .15s ease-out;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+}
+.x-mark .right {
+  transform: rotate(-45deg);
+}
+.x-mark .left {
+  transform: rotate(45deg);
+}
+
+.sky-container {
+  position: absolute;
+  color: white;
+  text-transform: uppercase;
+  margin: 0 auto;
+  right: 0;
+  left: 0;
+  top: 2%;
+  text-align: center;
+  opacity: 0;
+}
+@media screen and (min-width: 860px) {
+  .sky-container {
+    top: 18%;
+    right: 12%;
+    left: auto;
+  }
+}
+.sky-container__left, .sky-container__right {
+  display: inline-block;
+  vertical-align: top;
+  font-weight: bold;
+}
+.sky-container__left h2, .sky-container__right h2 {
+  font-family: 'brandon-grotesque', sans-serif;
+  font-size: 26px;
+  line-height: 26px;
+  margin: 0;
+}
+@media screen and (min-width: 860px) {
+  .sky-container__left h2, .sky-container__right h2 {
+    font-size: 72px;
+    line-height: 68px;
+  }
+}
+.sky-container__left {
+  margin-right: 5px;
+}
+.sky-container .thirty-one {
+  letter-spacing: 4px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.twitter:hover a {
+  transform: rotate(-45deg) scale(1.05);
+}
+.twitter:hover i {
+  color: #21c2ff;
+}
+.twitter a {
+  bottom: -40px;
+  right: -75px;
+  transform: rotate(-45deg);
+}
+.twitter i {
+  bottom: 7px;
+  right: 7px;
+  color: #00ACED;
+}
+
+.social-icon a {
+  position: absolute;
+  background: white;
+  color: white;
+  box-shadow: -1px -1px 20px 0px rgba(0, 0, 0, 0.3);
+  display: inline-block;
+  width: 150px;
+  height: 80px;
+  transform-origin: 50% 50%;
+  transition: .15s ease-out;
+}
+.social-icon i {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1000;
+  transition: .15s ease-out;
+}
+
+.youtube:hover a {
+  transform: rotate(45deg) scale(1.05);
+}
+.youtube:hover i {
+  color: #ec4c44;
+}
+.youtube a {
+  bottom: -40px;
+  left: -75px;
+  transform: rotate(45deg);
+}
+.youtube i {
+  bottom: 7px;
+  left: 7px;
+  color: #E62117;
+}
+.tab tr{
+  display:block; /*将tr设置为块体元素*/
+    margin:6px 0;
+}
+
+</style>
+
+<script src="js/prefixfree.min.js"></script>
+
+</head>
+
+<body>
+<div class="x-mark">
+	<div class="container">
+		<div class="left"></div>
+		<div class="right"></div>
+	</div>
+</div>
+<div class="intro-container">
+	<header class="hea">
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">博客主页</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="3dblog/index.html">3D博客</a></li>
+        <li><a href="message.html">留言板</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="站内搜索">
+        </div>
+        <button type="submit" class="btn btn-default">搜索</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">用户选项 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="login.html">登录</a></li>
+            <li><a href="register.html">注册</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">意见反馈</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</header>
+<div class="container">
+  <div class="col-md-9">
+
+    <div class="panel panel-default">
+    <div class="panel-heading">置顶文章</div>
+      <div class="panel-body">
+        <table width="100%;">
+          <tr>
+            <td><img width="100px;" src="public/img/ajax.jpg">
+              <a href="http://blog.csdn.net/lidengw08/article/details/7514457">ajax请求的五个步骤</a>
+            </td>
+            <td>
+              <img width="100px;" src="public/img/github.jpg">
+              <a href="https://github.com/zhongjidalao/zhongjidalao.github.io">3D博客的源代码</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+    <div class="panel-heading">最近更新</div>
+      <div class="panel-body">
+        <table class="tab">
+          <tr>
+            <td>
+              <img width="300px;" src="public/img/git.jpg">
+            </td>
+            <td>
+              <h2><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/">git使用教程！</a></h2>
+              <span>使用说明：百度搜索...</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+  <div class="panel-heading">日常灌水</div>
+  <div class="panel-body">
+    <table>
+      <tr>
+        <td>
+          <img width="200px;" src="public/img/linux.jpg">
+        </td>
+        <td>
+          <h2><a href="#">Manjaro Linux 17.0.2 pre 5 发布！</a></h2>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+  </div>
+    <div class="col-md-3">
+        <div style="background-color: white; text-align: center;">
+          <canvas id="clock" width="250px" height="250px"></canvas>
+        </div>
+        <script src="clock.js"></script>
+
+        <div class="panel panel-default" style="margin-top: 20px;">
+          <div class="panel-heading">作者信息</div>
+            <div class="panel-body">
+              姓名：马丹丹<br/>
+              班级：计算机三班<br/>
+              系别：信息工程系<br/>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">热门文章</div>
+            <div class="panel-body">
+              <table class="tab">
+                <tr>
+                  <td><img style="width: 100px;" src="public/img/kejie.jpg"></td>
+                  <td>
+                    <a href="#">柯洁对战阿尔法狗 人类再败北</a>
+                  </td>
+              </tr>
+              <tr>
+                <td><img width="100px;" src="public/img/lesuo.jpeg"></td>
+                <td><a href="#">勒索病毒肆虐，我们该如何保护自己的信息安全？</a></td>
+              </tr>
+              <tr>
+                <td><img src="public/img/yun.jpg" width="100px;"></td>
+                <td><a href="#">什么是云计算？</a></td>
+              </tr>
+              <tr>
+                <td><img src="public/img/jiqi.jpg" width="100px;"></td>
+                <td><a href="#">斯坦福大学公开课，机器学习。</a></td>
+              </tr>
+              </table>
+            </div>
+          </div>
+
+        </div>
+    </div>
+</div>
+<div class="sky-container">
+	内容坎坎坷坷扩扩
+</div>
+
+
+<script src='js/jquery.min.js'></script>
+<script src='js/TweenMax.min.js'></script>
+<script src='js/three.min.js'></script>
+<script src="js/index.js"></script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+</div>
+</body>
+</html>

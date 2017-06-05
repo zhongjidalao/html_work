@@ -1,0 +1,353 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>马丹丹的博客</title>
+	<script type="text/javascript" src="public/js/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" href="public/css/bootstrap.min.css">
+	<script src="public/js/bootstrap.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="time/time.css">
+  <script type="text/javascript" src="time/time.js"></script>
+<style>
+@import url("https://fonts.googleapis.com/css?family=Montserrat:200,300,400,600");
+.more-pens {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 10;
+  font-family: "Montserrat";
+  font-size: 12px;
+}
+
+a.white-mode, a.white-mode:link, a.white-mode:visited, a.white-mode:active {
+  font-family: "Montserrat";
+  font-size: 12px;
+  text-decoration: none;
+  background: #212121;
+  padding: 4px 8px;
+  color: #f7f7f7;
+}
+a.white-mode:hover, a.white-mode:link:hover, a.white-mode:visited:hover, a.white-mode:active:hover {
+  background: #edf3f8;
+  color: #212121;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+}
+.hea{
+  position: absolute;
+  width: 100%;
+}
+.container{
+  position: absolute;
+  margin-top:60px;
+  margin-left: 20%;
+}
+.tab tr{
+  display:block; /*将tr设置为块体元素*/
+    margin:6px 0;
+}
+</style>
+</head>
+<body>
+  <header class="hea">
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">博客主页</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="3dblog/index.html">3D博客</a></li>
+        <li><a href="message.html">留言板</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="站内搜索">
+        </div>
+        <button type="submit" class="btn btn-default">搜索</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">用户选项 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="login.html">登录</a></li>
+            <li><a href="register.html">注册</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">意见反馈</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</header>
+<div class="container">
+  <div class="col-md-9">
+
+    <div class="panel panel-default">
+    <div class="panel-heading">置顶文章</div>
+      <div class="panel-body">
+        <table width="100%;">
+          <tr>
+            <td><img width="100px;" src="public/img/ajax.jpg">
+              <a href="http://blog.csdn.net/lidengw08/article/details/7514457">ajax请求的五个步骤</a>
+            </td>
+            <td>
+              <img width="100px;" src="public/img/github.jpg">
+              <a href="https://github.com/zhongjidalao/zhongjidalao.github.io">3D博客的源代码</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+    <div class="col-md-3">
+        <div style="background-color: white; text-align: center;">
+          <canvas id="clock" width="250px" height="250px"></canvas>
+        </div>
+        <script src="clock.js"></script>
+
+        <div class="panel panel-default" style="margin-top: 20px;">
+          <div class="panel-heading">作者信息</div>
+            <div class="panel-body">
+              姓名：马丹丹<br/>
+              班级：计算机三班<br/>
+              系别：信息工程系<br/>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">最新文章</div>
+            <div class="panel-body">
+              <table class="tab">
+                <tr>
+                  <td><img style="width: 100px;" src="public/img/kejie.jpg"></td>
+                  <td>
+                    <a href="#">柯洁对战阿尔法狗 人类再败北</a>
+                  </td>
+              </tr>
+              <tr>
+                <td><img width="100px;" src="public/img/lesuo.jpeg"></td>
+                <td><a href="#">勒索病毒肆虐，我们该如何保护自己的信息安全？</a></td>
+              </tr>
+              <tr>
+                <td><img src="public/img/yun.jpg" width="100px;"></td>
+                <td><a href="#">什么是云计算？</a></td>
+              </tr>
+              <tr>
+                <td><img src="public/img/jiqi.jpg" width="100px;"></td>
+                <td><a href="#">斯坦福大学公开课，机器学习。</a></td>
+              </tr>
+              </table>
+            </div>
+          </div>
+
+        </div>
+    </div>
+<script>
+let max_particles    = 100;
+let particles        = [];
+let frequency        = 100;
+let init_num         = max_particles;
+let max_time         = frequency*max_particles;
+let time_to_recreate = false;
+
+// Enable repopolate
+setTimeout(function(){
+  time_to_recreate = true;
+}.bind(this), max_time)
+
+// Popolate particles
+popolate(max_particles);
+
+var tela = document.createElement('canvas');
+    tela.width = $(window).width();
+    tela.height = $(window).height();
+    $("body").append(tela);
+
+var canvas = tela.getContext('2d');
+
+class Particle{
+  constructor(canvas, options){
+    let colors = ["#feea00","#a9df85","#5dc0ad", "#ff9a00","#fa3f20"]
+    let types  = ["full","fill","empty"]
+    this.random = Math.random()
+    this.canvas = canvas;
+    this.progress = 0;
+
+    this.x = ($(window).width()/2)  + (Math.random()*200 - Math.random()*200)
+    this.y = ($(window).height()/2) + (Math.random()*200 - Math.random()*200)
+    this.w = $(window).width()
+    this.h = $(window).height()
+    this.radius = 1 + (8*this.random)
+    this.type  = types[this.randomIntFromInterval(0,types.length-1)];
+    this.color = colors[this.randomIntFromInterval(0,colors.length-1)];
+    this.a = 0
+    this.s = (this.radius + (Math.random() * 1))/10;
+    //this.s = 12 //Math.random() * 1;
+  }
+
+  getCoordinates(){
+    return {
+      x: this.x,
+      y: this.y
+    }
+  }
+
+  randomIntFromInterval(min,max){
+      return Math.floor(Math.random()*(max-min+1)+min);
+  }
+
+  render(){
+    // Create arc
+    let lineWidth = 0.2 + (2.8*this.random);
+    let color = this.color;
+    switch(this.type){
+      case "full":
+        this.createArcFill(this.radius, color)
+        this.createArcEmpty(this.radius+lineWidth, lineWidth/2, color)
+      break;
+      case "fill":
+        this.createArcFill(this.radius, color)
+      break;
+      case "empty":
+        this.createArcEmpty(this.radius, lineWidth, color)
+      break;
+    }
+  }
+
+  createArcFill(radius, color){
+    this.canvas.beginPath();
+    this.canvas.arc(this.x, this.y, radius, 0, 2 * Math.PI);
+    this.canvas.fillStyle = color;
+    this.canvas.fill();
+    this.canvas.closePath();
+  }
+
+  createArcEmpty(radius, lineWidth, color){
+    this.canvas.beginPath();
+    this.canvas.arc(this.x, this.y, radius, 0, 2 * Math.PI);
+    this.canvas.lineWidth = lineWidth;
+    this.canvas.strokeStyle = color;
+    this.canvas.stroke();
+    this.canvas.closePath();
+  }
+
+  move(){
+
+    this.x += Math.cos(this.a) * this.s;
+    this.y += Math.sin(this.a) * this.s;
+    this.a += Math.random() * 0.4 - 0.2;
+
+    if(this.x < 0 || this.x > this.w - this.radius){
+      return false
+    }
+
+    if(this.y < 0 || this.y > this.h - this.radius){
+      return false
+    }
+    this.render()
+    return true
+  }
+
+  calculateDistance(v1, v2){
+    let x = Math.abs(v1.x - v2.x);
+    let y = Math.abs(v1.y - v2.y);
+    return Math.sqrt((x * x) + (y * y));
+  }
+}
+
+/*
+ * Function to clear layer canvas
+ * @num:number number of particles
+ */
+function popolate(num){
+  for (var i = 0; i < num; i++) {
+   setTimeout(
+     function(x){
+       return function(){
+         // Add particle
+         particles.push(new Particle(canvas))
+       };
+     }(i)
+     ,frequency*i);
+  }
+  return particles.length
+ }
+
+function clear(){
+  // canvas.globalAlpha=0.04;
+  canvas.fillStyle='#111111';
+  canvas.fillRect(0, 0, tela.width, tela.height);
+  // canvas.globalAlpha=1;
+}
+
+function connection(){
+  let old_element = null
+  $.each(particles, function(i, element){
+    if(i>0){
+      let box1 = old_element.getCoordinates()
+      let box2 = element.getCoordinates()
+      canvas.beginPath();
+      canvas.moveTo(box1.x,box1.y);
+      canvas.lineTo(box2.x,box2.y);
+      canvas.lineWidth = 0.45;
+      canvas.strokeStyle="#3f47ff";
+      canvas.stroke();
+      canvas.closePath();
+    }
+
+    old_element = element
+  })
+}
+
+/*
+ * Function to update particles in canvas
+ */
+function update(){
+  clear();
+  connection()
+  particles = particles.filter(function(p) { return p.move() })
+  // Recreate particles
+  if(time_to_recreate){
+    if(particles.length < init_num){ popolate(1);}
+  }
+  requestAnimationFrame(update.bind(this))
+}
+
+update()
+</script>
+
+</body>
+</html>
+
